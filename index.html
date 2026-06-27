@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════════════════════════════════════╗
+     ║              ✏️  YOUR PERSONAL CONFIG — EDIT HERE               ║
+     ║  Sirf is section mein apni details type karo,                   ║
+     ║  baki sab automatically update ho jayega!                        ║
+     ╚══════════════════════════════════════════════════════════════════╝ -->
+<script>
+const CONFIG = {
+
+  /* ── 👤 BASIC INFO ─────────────────────────────────────────────── */
+  name:         "Mohammed Shakib",        // Apna naam
+  tagline:      "AI & ML Student · Developer · Problem Solver",
+  bio:          "Passionate about building intelligent systems and turning ideas into reality. Based in Hyderabad, India 🇮🇳",
+  bio2:         "When I'm not coding, you'll find me exploring the latest in AI, working on side projects, or just being curious about how things work.",
+  location:     "Hyderabad, India",
+  photo:        "shakib.jpg",             // Apni photo ka naam (same folder mein rakhna)
+  available:    true,                     // true = 'Open to work' badge dikhega
+
+  /* ── 📊 STATS (Hero ke neeche numbers) ────────────────────────── */
+  stats: [
+    { number: "10+", label: "Projects Built"   },
+    { number: "5+",  label: "Certifications"   },
+    { number: "2+",  label: "Years Learning"   },
+    { number: "∞",   label: "Curiosity"        },
+  ],
+
+  /* ── 📞 CONTACT DETAILS ────────────────────────────────────────── */
+  email:    "your@email.com",             // Apna email
+  phone:    "+91 00000 00000",            // Apna phone number
+  resume:   "#",                          // Resume link ya file path
+
+  /* ── 🔗 SOCIAL LINKS (# = hide kar do) ─────────────────────────── */
+  social: {
+    github:    "https://github.com/",     // GitHub URL (ya '#' agar nahi hai)
+    linkedin:  "https://linkedin.com/in/",
+    twitter:   "#",                       // Twitter/X
+    instagram: "#",
+    youtube:   "#",
+  },
+
+  /* ── 🛠️ SKILLS ──────────────────────────────────────────────────
+     icon: FontAwesome class (e.g. "fab fa-python")
+     color: icon ka color
+  ───────────────────────────────────────────────────────────────── */
+  skills: [
+    {
+      category: "AI & Machine Learning",
+      items: [
+        { name: "Python",       icon: "fab fa-python",      color: "#3776AB" },
+        { name: "TensorFlow",   icon: "fas fa-brain",       color: "#ff6fb0" },
+        { name: "PyTorch",      icon: "fas fa-fire",        color: "#ee4c2c" },
+        { name: "Scikit-Learn", icon: "fas fa-chart-line",  color: "#7c6fff" },
+        { name: "Pandas",       icon: "fas fa-table",       color: "#150458" },
+        { name: "NumPy",        icon: "fas fa-calculator",  color: "#013243" },
+        { name: "OpenCV",       icon: "fas fa-eye",         color: "#00d084" },
+        { name: "NLP",          icon: "fas fa-robot",       color: "#7c6fff" },
+      ]
+    },
+    {
+      category: "Web Development",
+      items: [
+        { name: "HTML5",       icon: "fab fa-html5",       color: "#e34c26" },
+        { name: "CSS3",        icon: "fab fa-css3-alt",    color: "#264de4" },
+        { name: "JavaScript",  icon: "fab fa-js",          color: "#f7df1e" },
+        { name: "React",       icon: "fab fa-react",       color: "#61dafb" },
+        { name: "Node.js",     icon: "fas fa-server",      color: "#00c896" },
+      ]
+    },
+    {
+      category: "Tools & Platforms",
+      items: [
+        { name: "Git",          icon: "fab fa-git-alt",    color: "#f05032" },
+        { name: "GitHub",       icon: "fab fa-github",     color: "#ffffff" },
+        { name: "Google Colab", icon: "fab fa-google",     color: "#4285f4" },
+        { name: "SQL",          icon: "fas fa-database",   color: "#ff6fb0" },
+        { name: "Linux",        icon: "fas fa-terminal",   color: "#7c6fff" },
+        { name: "Cloud Basics", icon: "fas fa-cloud",      color: "#0089d6" },
+      ]
+    },
+  ],
+
+  /* ── 💼 PROJECTS ───────────────────────────────────────────────
+     icon: FontAwesome class (thumbnail icon)
+     tags: array of strings
+     github / demo: URL (ya '#' agar nahi hai)
+  ───────────────────────────────────────────────────────────────── */
+  projects: [
+    {
+      name:   "GestureVision X",
+      icon:   "fas fa-hand-paper",
+      tags:   ["Python", "OpenCV", "ML"],
+      desc:   "Real-time hand gesture recognition system using computer vision and machine learning.",
+      github: "#",
+      demo:   "#",
+    },
+    {
+      name:   "AI Chatbot",
+      icon:   "fas fa-comments",
+      tags:   ["NLP", "Python", "AI"],
+      desc:   "Intelligent conversational AI built with NLP techniques for natural human-like interaction.",
+      github: "#",
+      demo:   "#",
+    },
+    {
+      name:   "Data Analysis Dashboard",
+      icon:   "fas fa-chart-bar",
+      tags:   ["Data Science", "Pandas", "Matplotlib"],
+      desc:   "Interactive data visualization dashboard for exploring and analyzing complex datasets.",
+      github: "#",
+      demo:   "#",
+    },
+    // ➕ Naya project add karna ho toh ek aur block copy karo:
+    // {
+    //   name:   "Project Name",
+    //   icon:   "fas fa-code",
+    //   tags:   ["Tag1", "Tag2"],
+    //   desc:   "Project description yahan likho.",
+    //   github: "https://github.com/yourrepo",
+    //   demo:   "#",
+    // },
+  ],
+
+  /* ── 🏆 CERTIFICATIONS ─────────────────────────────────────────
+     image:  "certs/filename.jpg"  ← apna certificate photo yahan daalo
+             (E:\MOHAMMED SHAKIB PORTFOLIO\certs\ folder mein photo rakhna)
+     icon:   FontAwesome class (agar image nahi ho toh icon dikhega)
+     Tip: image field hata do agar photo nahi hai
+  ───────────────────────────────────────────────────────────────── */
+  certifications: [
+    {
+      name:   "Google AI Essentials",
+      issuer: "Google",
+      year:   "2024",
+      icon:   "fab fa-google",
+      image:  "certs/google-ai.jpg",     // ← apna certificate photo ka naam
+    },
+    {
+      name:   "Machine Learning Fundamentals",
+      issuer: "Coursera",
+      year:   "2024",
+      icon:   "fas fa-brain",
+      image:  "certs/ml-fundamentals.jpg",
+    },
+    {
+      name:   "Python for Data Science",
+      issuer: "IBM / Coursera",
+      year:   "2023",
+      icon:   "fab fa-python",
+      image:  "certs/python-ds.jpg",
+    },
+    {
+      name:   "Deep Learning Specialization",
+      issuer: "deeplearning.ai",
+      year:   "2024",
+      icon:   "fas fa-network-wired",
+      image:  "certs/deep-learning.jpg",
+    },
+    {
+      name:   "Git & GitHub Essentials",
+      issuer: "GitHub",
+      year:   "2023",
+      icon:   "fab fa-github",
+      image:  "certs/git-github.jpg",
+    },
+    // ➕ Naya cert add karna:
+    // {
+    //   name:   "Certificate Name",
+    //   issuer: "Issuer Name",
+    //   year:   "2025",
+    //   icon:   "fas fa-certificate",
+    //   image:  "certs/your-photo.jpg",
+    // },
+  ],
+
+};
+</script>
+<!-- ╚══════════════════════════════════════════════════════════════════╝ -->
+
+
+<!-- ──────────────── STYLES (touch mat karo) ──────────────────────── -->
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #08080f; --surface: #11111c; --card: #16162a;
+    --border: rgba(124,111,255,0.18);
+    --accent: #7c6fff; --accent2: #ff6fb0;
+    --text: #f0eeff; --muted: #8888aa;
+    --radius: 14px; --nav-h: 68px;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+  /* Orbs */
+  .orbs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(100px); }
+  .orb1 { width: 520px; height: 520px; background: radial-gradient(circle, rgba(124,111,255,0.35) 0%, transparent 70%); top: -180px; left: -180px; animation: drift1 14s ease-in-out infinite alternate; }
+  .orb2 { width: 440px; height: 440px; background: radial-gradient(circle, rgba(255,111,176,0.28) 0%, transparent 70%); bottom: -120px; right: -120px; animation: drift2 18s ease-in-out infinite alternate; }
+  .orb3 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(111,200,255,0.15) 0%, transparent 70%); top: 50%; left: 50%; animation: drift3 20s ease-in-out infinite alternate; }
+  @keyframes drift1 { to { transform: translate(70px, 50px); } }
+  @keyframes drift2 { to { transform: translate(-60px,-40px); } }
+  @keyframes drift3 { to { transform: translate(40px,-60px); } }
+
+  /* Navbar */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; background: rgba(8,8,15,0.75); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+  .nav-logo { font-family: 'Playfair Display',serif; font-size: 1.5rem; font-weight: 900; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--muted); transition: color 0.25s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 2px; transition: width 0.3s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover::after { width: 100%; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; border: none; background: none; }
+  .hamburger span { display: block; width: 26px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.35s, opacity 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; flex-direction: column; position: fixed; top: var(--nav-h); left: 0; right: 0; background: rgba(8,8,15,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); z-index: 99; padding: 1.5rem 5%; transform: translateY(-110%); transition: transform 0.4s ease; }
+  .mobile-menu.open { transform: translateY(0); }
+  .mobile-menu a { padding: 0.85rem 0; border-bottom: 1px solid var(--border); font-size: 1rem; color: var(--muted); transition: color 0.2s; }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--text); }
+
+  /* Layout */
+  section { position: relative; z-index: 1; padding: 100px 5%; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-tag { display: inline-block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); background: rgba(124,111,255,0.1); border: 1px solid rgba(124,111,255,0.25); padding: 0.35rem 1rem; border-radius: 50px; margin-bottom: 1.2rem; }
+  .section-title { font-family: 'Playfair Display',serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; line-height: 1.1; margin-bottom: 1rem; }
+  .gradient-text { background: linear-gradient(135deg,#fff 20%,var(--accent) 60%,var(--accent2) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .section-subtitle { color: var(--muted); max-width: 560px; font-size: 1rem; line-height: 1.7; }
+  hr.divider { border: none; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 0; }
+
+  /* Hero */
+  #hero { min-height: 100vh; display: flex; align-items: center; padding-top: calc(var(--nav-h) + 40px); }
+  .hero-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; width: 100%; }
+  .hero-left { flex: 1; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(124,111,255,0.1); border: 1px solid rgba(124,111,255,0.3); border-radius: 50px; padding: 0.4rem 1rem; font-size: 0.82rem; color: var(--accent); margin-bottom: 1.8rem; animation: fadeUp 0.8s ease both 0.1s; }
+  .hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 1.5s ease infinite; }
+  @keyframes pulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.5);opacity:0.5;} }
+  .hero-name { font-family: 'Playfair Display',serif; font-size: clamp(3rem,9vw,6.5rem); font-weight: 900; line-height: 1.0; margin-bottom: 1rem; animation: fadeUp 0.9s ease both 0.25s; }
+  .hero-title-line { font-size: clamp(1rem,2.5vw,1.3rem); color: var(--muted); margin-bottom: 1.8rem; animation: fadeUp 0.9s ease both 0.4s; }
+  .hero-title-line span { color: var(--accent); font-weight: 600; }
+  .hero-desc { color: var(--muted); max-width: 480px; font-size: 0.95rem; line-height: 1.75; margin-bottom: 2.5rem; animation: fadeUp 0.9s ease both 0.55s; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.9s ease both 0.7s; }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.8rem; border-radius: 50px; font-size: 0.92rem; font-weight: 600; cursor: pointer; transition: all 0.3s; border: none; }
+  .btn-primary { background: linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; box-shadow: 0 0 24px rgba(124,111,255,0.35); }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 36px rgba(124,111,255,0.55); }
+  .btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--text); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+  .hero-right { flex-shrink: 0; animation: fadeUp 1s ease both 0.3s; }
+  .photo-frame { width: 300px; height: 300px; border-radius: 50%; padding: 4px; background: linear-gradient(135deg,var(--accent),var(--accent2)); box-shadow: 0 0 60px rgba(124,111,255,0.35); }
+  .photo-frame img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: top; border: 4px solid var(--bg); }
+  .photo-placeholder { width:100%;height:100%;border-radius:50%;background:var(--card);border:4px solid var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;color:var(--muted); }
+  .photo-placeholder i { font-size:4rem;color:var(--accent);opacity:0.6; }
+  .scroll-hint { margin-top:3.5rem;display:flex;align-items:center;gap:0.7rem;color:var(--muted);font-size:0.82rem;animation:fadeUp 0.9s ease both 0.85s; }
+  .scroll-line { width:40px;height:1.5px;background:linear-gradient(90deg,var(--accent),transparent); }
+
+  /* Stats */
+  .stats-bar { position:relative;z-index:1;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 5%; }
+  .stats-inner { max-width:1100px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:1.5rem; }
+  .stat { text-align:center; }
+  .stat-num { font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+  .stat-label { font-size:0.82rem;color:var(--muted);margin-top:0.3rem; }
+
+  /* About */
+  .about-grid { display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center; }
+  .about-img-box { width:100%;aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--card); }
+  .about-img-box img { width:100%;height:100%;object-fit:cover;object-position:top; }
+  .about-img-placeholder { width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:var(--muted); }
+  .about-img-placeholder i { font-size:5rem;color:var(--accent);opacity:0.4; }
+  .about-img-wrap { position:relative; }
+  .about-badge-card { position:absolute;bottom:-20px;right:-20px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.4rem;display:flex;align-items:center;gap:0.8rem;box-shadow:0 8px 32px rgba(0,0,0,0.4); }
+  .about-badge-card i { font-size:1.5rem;color:var(--accent); }
+  .about-badge-card strong { display:block;font-size:1rem; }
+  .about-badge-card span { font-size:0.78rem;color:var(--muted); }
+  .about-text p { color:var(--muted);line-height:1.8;margin-bottom:1.2rem; }
+  .info-grid { display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin:1.8rem 0; }
+  .info-item { display:flex;flex-direction:column;gap:0.2rem; }
+  .info-item label { font-size:0.75rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em; }
+  .info-item span { font-size:0.9rem;color:var(--text); }
+
+  /* Skills */
+  #skills { background:var(--surface); }
+  .skills-header { text-align:center;margin-bottom:3.5rem; }
+  .skills-header .section-subtitle { margin:0 auto; }
+  .skills-categories { display:flex;flex-direction:column;gap:3rem; }
+  .skill-cat-title { font-size:0.85rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.2em;margin-bottom:1.2rem;display:flex;align-items:center;gap:0.7rem; }
+  .skill-cat-title::after { content:'';flex:1;height:1px;background:var(--border); }
+  .skills-grid { display:flex;flex-wrap:wrap;gap:0.75rem; }
+  .skill-chip { display:inline-flex;align-items:center;gap:0.5rem;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:0.5rem 1.1rem;font-size:0.88rem;color:var(--text);transition:all 0.3s;cursor:default; }
+  .skill-chip:hover { border-color:var(--accent);background:rgba(124,111,255,0.1);color:var(--accent);transform:translateY(-2px); }
+
+  /* Projects */
+  .projects-header { margin-bottom:3rem; }
+  .projects-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem; }
+  .project-card { background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s; }
+  .project-card:hover { transform:translateY(-6px);box-shadow:0 16px 48px rgba(124,111,255,0.2);border-color:var(--accent); }
+  .project-thumb { width:100%;height:180px;background:linear-gradient(135deg,rgba(124,111,255,0.2),rgba(255,111,176,0.15));display:flex;align-items:center;justify-content:center;font-size:3rem;color:var(--accent);opacity:0.7; }
+  .project-body { padding:1.4rem; }
+  .project-tags { display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.8rem; }
+  .project-tag { background:rgba(124,111,255,0.12);color:var(--accent);font-size:0.72rem;font-weight:600;padding:0.25rem 0.65rem;border-radius:50px;border:1px solid rgba(124,111,255,0.2); }
+  .project-name { font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:0.6rem; }
+  .project-desc { font-size:0.88rem;color:var(--muted);line-height:1.65;margin-bottom:1.2rem; }
+  .project-links { display:flex;gap:0.8rem; }
+  .project-link { display:inline-flex;align-items:center;gap:0.35rem;font-size:0.82rem;font-weight:600;color:var(--accent);transition:color 0.2s; }
+  .project-link:hover { color:var(--accent2); }
+
+  /* Certs */
+  #certifications { background:var(--surface); }
+  .cert-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:3rem; }
+
+  .cert-card {
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    overflow:hidden;transition:transform 0.35s,box-shadow 0.35s,border-color 0.35s;
+    cursor:pointer;position:relative;
+  }
+  .cert-card:hover { transform:translateY(-6px);box-shadow:0 20px 50px rgba(124,111,255,0.25);border-color:var(--accent); }
+
+  /* Certificate thumbnail */
+  .cert-thumb {
+    width:100%;height:180px;overflow:hidden;
+    background:linear-gradient(135deg,rgba(124,111,255,0.15),rgba(255,111,176,0.1));
+    position:relative;
+  }
+  .cert-thumb img {
+    width:100%;height:100%;object-fit:cover;
+    transition:transform 0.4s;
+  }
+  .cert-card:hover .cert-thumb img { transform:scale(1.05); }
+
+  /* Fallback icon when no image */
+  .cert-thumb-icon {
+    width:100%;height:100%;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:0.5rem;color:var(--accent);
+  }
+  .cert-thumb-icon i { font-size:3rem;opacity:0.6; }
+  .cert-thumb-icon span { font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em; }
+
+  /* Zoom overlay on hover */
+  .cert-zoom-overlay {
+    position:absolute;inset:0;
+    background:rgba(124,111,255,0.35);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;transition:opacity 0.3s;
+  }
+  .cert-zoom-overlay i { font-size:2rem;color:#fff; }
+  .cert-card:hover .cert-zoom-overlay { opacity:1; }
+
+  /* Cert body */
+  .cert-body { padding:1.2rem 1.4rem; }
+  .cert-name { font-size:0.95rem;font-weight:700;margin-bottom:0.3rem; }
+  .cert-meta { display:flex;justify-content:space-between;align-items:center; }
+  .cert-issuer { font-size:0.8rem;color:var(--muted); }
+  .cert-year { font-size:0.78rem;font-weight:700;color:var(--accent2);background:rgba(255,111,176,0.1);padding:0.2rem 0.6rem;border-radius:50px;border:1px solid rgba(255,111,176,0.2); }
+
+  /* ── Lightbox Modal ── */
+  .lightbox {
+    position:fixed;inset:0;z-index:999;
+    background:rgba(0,0,0,0.95);
+    display:flex;align-items:center;justify-content:center;
+    padding:1rem;
+    opacity:0;pointer-events:none;
+    transition:opacity 0.3s;
+  }
+  .lightbox.open { opacity:1;pointer-events:all; }
+  .lightbox-inner {
+    position:relative;max-width:900px;width:100%;
+    border-radius:var(--radius);overflow:hidden;
+    transform:scale(0.9);transition:transform 0.35s;
+    box-shadow:0 0 80px rgba(124,111,255,0.4);
+    background:var(--card);
+  }
+  .lightbox.open .lightbox-inner { transform:scale(1); }
+  .lightbox-inner img { width:100%; max-height:75vh; height:auto; object-fit:contain; display:block; margin:0 auto; }
+  .lightbox-info {
+    background:var(--card);padding:1.2rem 1.5rem;
+    display:flex;justify-content:space-between;align-items:center;
+    border-top:1px solid var(--border);
+    flex-wrap:wrap; gap:0.5rem;
+  }
+  .lightbox-info h3 { font-size:1rem;font-weight:600; }
+  .lightbox-info span { font-size:0.85rem;color:var(--muted); }
+  .lightbox-close {
+    position:absolute;top:12px;right:14px;
+    width:36px;height:36px;border-radius:50%;
+    background:rgba(0,0,0,0.7);border:1px solid var(--border);
+    color:#fff;font-size:1rem;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;transition:background 0.2s;z-index:2;
+  }
+  .lightbox-close:hover { background:var(--accent); }
+
+  /* No-image fallback in lightbox */
+  .lightbox-no-img {
+    background:var(--card);
+    width:100%;height:320px;
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    gap:1rem;color:var(--muted);
+  }
+  .lightbox-no-img i { font-size:5rem;color:var(--accent);opacity:0.5; }
+  .cert-year { font-size:0.75rem;font-weight:600;color:var(--accent2);margin-top:auto; }
+
+  /* Contact */
+  #contact { text-align:center; }
+  .contact-inner { max-width:640px;margin:0 auto; }
+  .contact-inner .section-subtitle { margin:0.8rem auto 2.5rem; }
+  .contact-cards { display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-bottom:3rem; }
+  .contact-card { background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem 1.6rem;display:flex;align-items:center;gap:0.8rem;font-size:0.9rem;transition:all 0.3s;min-width:200px; word-break:break-all; }
+  .contact-card:hover { border-color:var(--accent);transform:translateY(-3px); }
+  .contact-card i { font-size:1.2rem;color:var(--accent); }
+  .social-row { display:flex;justify-content:center;gap:1rem;flex-wrap:wrap; }
+  .social-btn { width:50px;height:50px;border-radius:50%;border:1.5px solid var(--border);background:var(--card);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--muted);transition:all 0.3s; }
+  .social-btn:hover { border-color:var(--accent);color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 24px rgba(124,111,255,0.25); }
+
+  /* Footer */
+  footer { position:relative;z-index:1;background:var(--surface);border-top:1px solid var(--border);text-align:center;padding:2rem 5%; }
+  footer p { font-size:0.84rem;color:var(--muted); }
+  footer span { color:var(--accent); }
+
+  /* Animations */
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:translateY(0);} }
+  .reveal { opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease; }
+  .reveal.visible { opacity:1;transform:translateY(0); }
+
+  /* Responsive */
+  @media (max-width:900px) {
+    .hero-inner { flex-direction:column;text-align:center; }
+    .hero-left { display:flex;flex-direction:column;align-items:center; }
+    .hero-right { order:-1; }
+    .photo-frame { width:220px;height:220px; }
+    .about-grid { grid-template-columns:1fr; }
+    .about-img-wrap { max-width:340px;margin:0 auto 2.5rem; }
+    .about-badge-card { right:0;bottom:-15px; }
+    .nav-links { display:none; }
+    .hamburger { display:flex; }
+    .mobile-menu { display:flex; }
+  }
+  @media (max-width:560px) {
+    section { padding:60px 4%; }
+    .photo-frame { width:180px;height:180px; }
+    .stat-num { font-size:1.8rem; }
+    .info-grid { grid-template-columns:1fr; }
+    .projects-grid { grid-template-columns:1fr; }
+    .cert-grid { grid-template-columns: 1fr; }
+    .contact-card { min-width:100%; font-size:0.84rem; padding: 1rem; }
+    .lightbox-info { flex-direction:column; align-items:center; text-align:center; }
+  }
+</style>
+
+<!-- ──────────────── HTML STRUCTURE ──────────────────────────────── -->
+<div class="orbs">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+
+<nav id="navbar">
+  <div class="nav-logo" id="navLogo"></div>
+  <ul class="nav-links" id="navLinks"></ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-badge" id="heroBadge"></div>
+        <h1 class="hero-name gradient-text" id="heroName"></h1>
+        <p class="hero-title-line" id="heroTagline"></p>
+        <p class="hero-desc" id="heroBio"></p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> View Projects</a>
+          <a href="#contact"  class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+        </div>
+        <div class="scroll-hint"><span class="scroll-line"></span> Scroll to explore</div>
+      </div>
+      <div class="hero-right">
+        <div class="photo-frame" id="heroPhoto"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stats-inner" id="statsBar"></div>
+</div>
+<hr class="divider" />
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <div class="about-img-box" id="aboutPhoto"></div>
+        <div class="about-badge-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <strong id="aboutLocation"></strong>
+            <span>📍 Based here</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <span class="section-tag">About Me</span>
+        <h2 class="section-title">Hey, I'm <span class="gradient-text" id="aboutName"></span></h2>
+        <p id="aboutBio"></p>
+        <p id="aboutBio2"></p>
+        <div class="info-grid" id="aboutInfoGrid"></div>
+        <a href="#contact" class="btn btn-primary" style="width:fit-content;">
+          <i class="fas fa-paper-plane"></i> Get In Touch
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="divider" />
+
+<section id="skills">
+  <div class="container">
+    <div class="skills-header reveal">
+      <span class="section-tag">My Skills</span>
+      <h2 class="section-title">Technologies I <span class="gradient-text">Work With</span></h2>
+      <p class="section-subtitle">A mix of languages, frameworks and tools I use to build things.</p>
+    </div>
+    <div class="skills-categories" id="skillsContainer"></div>
+  </div>
+</section>
+<hr class="divider" />
+
+<section id="projects">
+  <div class="container">
+    <div class="projects-header reveal">
+      <span class="section-tag">My Work</span>
+      <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+      <p class="section-subtitle">Things I've built that I'm proud of.</p>
+    </div>
+    <div class="projects-grid" id="projectsGrid"></div>
+  </div>
+</section>
+<hr class="divider" />
+
+<section id="certifications">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">Achievements</span>
+      <h2 class="section-title">Certifications &amp; <span class="gradient-text">Courses</span></h2>
+      <p class="section-subtitle">Click any certificate to view it full size. 🔍</p>
+    </div>
+    <div class="cert-grid" id="certGrid"></div>
+  </div>
+</section>
+<hr class="divider" />
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner reveal">
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+      <p class="section-subtitle">Feel free to reach out for collaborations, opportunities, or just to say hi!</p>
+      <div class="contact-cards" id="contactCards"></div>
+      <div class="social-row" id="socialRow"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <span id="footerName"></span> · Built with ❤️ from <span id="footerLocation"></span></p>
+</footer>
+
+
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+    <div id="lightboxContent"></div>
+    <div class="lightbox-info">
+      <h3 id="lightboxName"></h3>
+      <span id="lightboxMeta"></span>
+    </div>
+  </div>
+</div>
+<script>
+/* ── Helpers ── */
+function initials(name) {
+  return name.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
+}
+function photoHTML(src, alt, cls='') {
+  return `<img src="${src}" alt="${alt}" class="${cls}"
+    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />`;
+}
+
+/* ── Navbar ── */
+document.getElementById('navLogo').textContent = initials(CONFIG.name);
+document.title = CONFIG.name + ' — Portfolio';
+
+const navItems = ['Home:#hero','About:#about','Skills:#skills','Projects:#projects','Certs:#certifications','Contact:#contact'];
+document.getElementById('navLinks').innerHTML =
+  navItems.map(i => { const [t,h]=i.split(':'); return `<li><a href="${h}">${t}</a></li>`; }).join('');
+document.getElementById('mobileMenu').innerHTML =
+  navItems.map(i => { const [t,h]=i.split(':'); return `<a href="${h}" onclick="closeMobile()">${t}</a>`; }).join('');
+
+/* ── Hero ── */
+const badge = document.getElementById('heroBadge');
+if (CONFIG.available) badge.innerHTML = `<span class="dot"></span> Available for opportunities`;
+else badge.style.display = 'none';
+
+document.getElementById('heroName').innerHTML = CONFIG.name.replace(' ','<br/>');
+document.getElementById('heroTagline').innerHTML = CONFIG.tagline
+  .split('·').map((p,i) => i===0 ? p.trim() : ` · <span>${p.trim()}</span>`).join('');
+document.getElementById('heroBio').textContent = CONFIG.bio;
+
+document.getElementById('heroPhoto').innerHTML =
+  photoHTML(CONFIG.photo, CONFIG.name) +
+  `<div class="photo-placeholder" style="display:none;"><i class="fas fa-user"></i><span style="font-size:0.8rem;">Add your photo</span></div>`;
+
+/* ── Stats ── */
+document.getElementById('statsBar').innerHTML =
+  CONFIG.stats.map(s => `<div class="stat"><div class="stat-num">${s.number}</div><div class="stat-label">${s.label}</div></div>`).join('');
+
+/* ── About ── */
+document.getElementById('aboutLocation').textContent = CONFIG.location;
+document.getElementById('aboutName').textContent    = CONFIG.name;
+document.getElementById('aboutBio').textContent     = CONFIG.bio;
+document.getElementById('aboutBio2').textContent    = CONFIG.bio2;
+document.getElementById('aboutPhoto').innerHTML =
+  photoHTML(CONFIG.photo, CONFIG.name) +
+  `<div class="about-img-placeholder" style="display:none;"><i class="fas fa-user-circle"></i><span style="font-size:0.9rem;color:var(--muted);">${CONFIG.name}</span></div>`;
+document.getElementById('aboutInfoGrid').innerHTML = `
+  <div class="info-item"><label>Name</label><span>${CONFIG.name}</span></div>
+  <div class="info-item"><label>Location</label><span>${CONFIG.location}</span></div>
+  <div class="info-item"><label>Email</label><span>${CONFIG.email}</span></div>
+  <div class="info-item"><label>Status</label><span>${CONFIG.available ? '🟢 Open to Work' : '🔴 Not Available'}</span></div>`;
+
+/* ── Skills ── */
+document.getElementById('skillsContainer').innerHTML =
+  CONFIG.skills.map(cat => `
+    <div class="reveal">
+      <div class="skill-cat-title">${cat.category}</div>
+      <div class="skills-grid">
+        ${cat.items.map(s => `
+          <div class="skill-chip">
+            <i class="${s.icon}" style="color:${s.color}"></i> ${s.name}
+          </div>`).join('')}
+      </div>
+    </div>`).join('');
+
+/* ── Projects ── */
+document.getElementById('projectsGrid').innerHTML =
+  CONFIG.projects.map(p => `
+    <div class="project-card reveal">
+      <div class="project-thumb"><i class="${p.icon}"></i></div>
+      <div class="project-body">
+        <div class="project-tags">${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}</div>
+        <h3 class="project-name">${p.name}</h3>
+        <p class="project-desc">${p.desc}</p>
+        <div class="project-links">
+          ${p.github !== '#' ? `<a href="${p.github}" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>` : ''}
+          ${p.demo   !== '#' ? `<a href="${p.demo}"   class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>` : ''}
+          ${p.github === '#' && p.demo === '#' ? `<span style="color:var(--muted);font-size:0.82rem;">Coming soon</span>` : ''}
+        </div>
+      </div>
+    </div>`).join('');
+
+/* ── Certifications (Photo Gallery + Lightbox) ── */
+document.getElementById('certGrid').innerHTML =
+  CONFIG.certifications.map((c, idx) => {
+    const hasImg = c.image && c.image.trim() !== '';
+    const thumbHTML = hasImg
+      ? `<img src="${c.image}" alt="${c.name}"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+         <div class="cert-thumb-icon" style="display:none;">
+           <i class="${c.icon}"></i>
+           <span>No photo yet</span>
+         </div>`
+      : `<div class="cert-thumb-icon">
+           <i class="${c.icon}"></i>
+           <span>Add photo to certs/</span>
+         </div>`;
+    return `
+    <div class="cert-card reveal" onclick="openLightbox(${idx})">
+      <div class="cert-thumb">
+        ${thumbHTML}
+        <div class="cert-zoom-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="cert-body">
+        <div class="cert-name">${c.name}</div>
+        <div class="cert-meta">
+          <span class="cert-issuer">${c.issuer}</span>
+          <span class="cert-year">${c.year}</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+/* ── Lightbox functions ── */
+function openLightbox(idx) {
+  const c = CONFIG.certifications[idx];
+  const hasImg = c.image && c.image.trim() !== '';
+  document.getElementById('lightboxName').textContent = c.name;
+  document.getElementById('lightboxMeta').textContent = c.issuer + ' · ' + c.year;
+  document.getElementById('lightboxContent').innerHTML = hasImg
+    ? `<img src="${c.image}" alt="${c.name}"
+           onerror="this.outerHTML='<div class=\'lightbox-no-img\'><i class=\'${c.icon}\'></i><p>Photo not found.<br>Add it to certs/ folder.</p></div>'" />`
+    : `<div class="lightbox-no-img">
+         <i class="${c.icon}"></i>
+         <p style="text-align:center">No photo added yet.<br><small>Add image to <code>certs/</code> folder &amp; update CONFIG</small></p>
+       </div>`;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.closest('.lightbox-close')) return;
+  if (e && e.target.closest('.lightbox-inner') && !e.target.closest('.lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; } });
+
+/* ── Contact ── */
+document.getElementById('contactCards').innerHTML = `
+  <a href="mailto:${CONFIG.email}" class="contact-card"><i class="fas fa-envelope"></i><span>${CONFIG.email}</span></a>
+  <a href="tel:${CONFIG.phone.replace(/\s/g,'')}" class="contact-card"><i class="fas fa-phone"></i><span>${CONFIG.phone}</span></a>
+  <div class="contact-card"><i class="fas fa-map-marker-alt"></i><span>${CONFIG.location}</span></div>`;
+
+const socialMap = [
+  { key:'github',    icon:'fab fa-github',    title:'GitHub'    },
+  { key:'linkedin',  icon:'fab fa-linkedin-in',title:'LinkedIn'  },
+  { key:'twitter',   icon:'fab fa-x-twitter', title:'Twitter/X' },
+  { key:'instagram', icon:'fab fa-instagram', title:'Instagram' },
+  { key:'youtube',   icon:'fab fa-youtube',   title:'YouTube'   },
+];
+document.getElementById('socialRow').innerHTML =
+  socialMap.filter(s => CONFIG.social[s.key] && CONFIG.social[s.key] !== '#')
+    .map(s => `<a href="${CONFIG.social[s.key]}" class="social-btn" title="${s.title}" target="_blank"><i class="${s.icon}"></i></a>`)
+    .join('') || '<p style="color:var(--muted);font-size:0.9rem;">Add your social links in CONFIG above ↑</p>';
+
+/* ── Footer ── */
+document.getElementById('footerName').textContent = CONFIG.name;
+document.getElementById('footerLocation').textContent = CONFIG.location.split(',')[0];
+
+/* ── Hamburger ── */
+const hamburger  = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+
+/* ── Scroll Reveal ── */
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 80); observer.unobserve(entry.target); }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+/* ── Navbar scroll shadow ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').style.background =
+    window.scrollY > 20 ? 'rgba(8,8,15,0.95)' : 'rgba(8,8,15,0.75)';
+});
+</script>
+
+</body>
+</html>
