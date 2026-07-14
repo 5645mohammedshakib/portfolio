@@ -22,24 +22,24 @@ const CONFIG = {
   /* ── 👤 BASIC INFO ─────────────────────────────────────────────── */
   name:         "Mohammed Shakib",        // Apna naam
   tagline:      "AI & ML Student · Developer · Problem Solver",
-  bio:          "Passionate about building intelligent systems and turning ideas into reality. Based in Hyderabad, India 🇮🇳",
-  bio2:         "When I'm not coding, you'll find me exploring the latest in AI, working on side projects, or just being curious about how things work.",
-  location:     "Hyderabad, India",
+  bio:          "Second-year B. Tech CSE (AI & ML) student with a strong foundation in C, Python, and Data Structures & Algorithms. Currently expanding into Java and full-stack web development. Seeking a Software Engineering Internship to contribute to impactful engineering teams.",
+  bio2:         "Passionate about building intelligent systems, working on software projects, and learning new technologies. Based in Hyderabad, India 🇮🇳",
+  location:     "Hyderabad, Telangana, India",
   photo:        "shakib.jpg",             // Apni photo ka naam (same folder mein rakhna)
   available:    true,                     // true = 'Open to work' badge dikhega
 
   /* ── 📊 STATS (Hero ke neeche numbers) ────────────────────────── */
   stats: [
-    { number: "10+", label: "Projects Built"   },
-    { number: "5+",  label: "Certifications"   },
-    { number: "2+",  label: "Years Learning"   },
-    { number: "∞",   label: "Curiosity"        },
+    { number: "8.05", label: "B.Tech CGPA"      },
+    { number: "4",    label: "Certifications"   },
+    { number: "3+",   label: "Projects Built"   },
+    { number: "9.4",  label: "Intermediate GPA" },
   ],
 
   /* ── 📞 CONTACT DETAILS ────────────────────────────────────────── */
   email:    "5645mohammedshakib@gmail.com",
   phone:    "+91 93819 38684",
-  resume:   "#",                          // Resume link ya file path
+  resume:   "resume.html",                // Resume link ya file path
 
   /* ── 🔗 SOCIAL LINKS (# = hide kar do) ─────────────────────────── */
   social: {
@@ -56,28 +56,38 @@ const CONFIG = {
   ───────────────────────────────────────────────────────────────── */
   skills: [
     {
-      category: "Programming",
+      category: "Programming Languages",
       items: [
-        { name: "Python",      icon: "fab fa-python",   color: "#3776AB" },
         { name: "C",           icon: "fas fa-code",     color: "#7c6fff" },
-        { name: "C++",         icon: "fas fa-code",     color: "#ff6fb0" },
+        { name: "Python",      icon: "fab fa-python",   color: "#3776AB" },
       ]
     },
     {
-      category: "Web Basics",
+      category: "Currently Learning / Web",
       items: [
+        { name: "Java",        icon: "fab fa-java",     color: "#f89820" },
         { name: "HTML5",       icon: "fab fa-html5",    color: "#e34c26" },
         { name: "CSS3",        icon: "fab fa-css3-alt", color: "#264de4" },
         { name: "JavaScript",  icon: "fab fa-js",       color: "#f7df1e" },
+        { name: "Node.js",     icon: "fab fa-node-js",  color: "#68a063" },
+        { name: "Express.js",  icon: "fas fa-server",   color: "#8888aa" },
+        { name: "SQL",         icon: "fas fa-database", color: "#00758f" },
       ]
     },
     {
-      category: "Tools",
+      category: "Core Computer Science",
       items: [
+        { name: "Data Structures", icon: "fas fa-sitemap", color: "#ff6fb0" },
+        { name: "Algorithms",      icon: "fas fa-project-diagram", color: "#7c6fff" },
+        { name: "Problem Solving",  icon: "fas fa-lightbulb", color: "#ffc107" },
+      ]
+    },
+    {
+      category: "Tools & Platforms",
+      items: [
+        { name: "VS Code",      icon: "fas fa-laptop-code", color: "#007acc" },
         { name: "Git",          icon: "fab fa-git-alt", color: "#f05032" },
         { name: "GitHub",       icon: "fab fa-github",  color: "#ffffff" },
-        { name: "Google Colab", icon: "fab fa-google",  color: "#4285f4" },
-        { name: "VS Code",      icon: "fas fa-laptop-code", color: "#007acc" },
       ]
     },
   ],
@@ -89,38 +99,29 @@ const CONFIG = {
   ───────────────────────────────────────────────────────────────── */
   projects: [
     {
-      name:   "GestureVision X",
-      icon:   "fas fa-hand-paper",
-      tags:   ["Python", "OpenCV", "ML"],
-      desc:   "Real-time hand gesture recognition system using computer vision and machine learning.",
+      name:   "Student Record Management System",
+      icon:   "fas fa-folder-open",
+      tags:   ["C", "File Handling", "CRUD"],
+      desc:   "Console-based application in C to efficiently manage student records, supporting large datasets with full CRUD operations and data persistence via file handling.",
+      github: "https://github.com/5645mohammedshakib/Student-Record-Management-System",
+      demo:   "#",
+    },
+    {
+      name:   "Simple Calculator",
+      icon:   "fas fa-calculator",
+      tags:   ["Python", "Logic", "UI"],
+      desc:   "Interactive calculator built in Python capable of performing arithmetic operations with robust error handling and structured modular code.",
       github: "#",
       demo:   "#",
     },
     {
-      name:   "AI Chatbot",
-      icon:   "fas fa-comments",
-      tags:   ["NLP", "Python", "AI"],
-      desc:   "Intelligent conversational AI built with NLP techniques for natural human-like interaction.",
+      name:   "Exam Strategy Simulator",
+      icon:   "fas fa-graduation-cap",
+      tags:   ["Python", "Simulation", "Algorithms"],
+      desc:   "Python application simulating exam strategies. Calculates scores based on correct, incorrect, and skipped answers using weighted scoring algorithms to optimize performance.",
       github: "#",
       demo:   "#",
     },
-    {
-      name:   "Data Analysis Dashboard",
-      icon:   "fas fa-chart-bar",
-      tags:   ["Data Science", "Pandas", "Matplotlib"],
-      desc:   "Interactive data visualization dashboard for exploring and analyzing complex datasets.",
-      github: "#",
-      demo:   "#",
-    },
-    // ➕ Naya project add karna ho toh ek aur block copy karo:
-    // {
-    //   name:   "Project Name",
-    //   icon:   "fas fa-code",
-    //   tags:   ["Tag1", "Tag2"],
-    //   desc:   "Project description yahan likho.",
-    //   github: "https://github.com/yourrepo",
-    //   demo:   "#",
-    // },
   ],
 
   /* ── 🏆 CERTIFICATIONS ─────────────────────────────────────────
@@ -131,11 +132,32 @@ const CONFIG = {
   ───────────────────────────────────────────────────────────────── */
   certifications: [
     {
+      name:   "AI for Sustainability Virtual Internship",
+      issuer: "1M1B | AICTE | IBM Skills Build",
+      year:   "2026",
+      icon:   "fas fa-leaf",
+      image:  "",
+    },
+    {
       name:   "Python for Data Science",
       issuer: "NPTEL",
       year:   "2025",
       icon:   "fab fa-python",
       image:  "certs/nptel-python.png",
+    },
+    {
+      name:   "Introduction to Modern AI",
+      issuer: "Oracle",
+      year:   "2025",
+      icon:   "fas fa-brain",
+      image:  "certs/oracle.png",
+    },
+    {
+      name:   "CS401: Operating Systems",
+      issuer: "Saylor Academy",
+      year:   "2025",
+      icon:   "fas fa-laptop-code",
+      image:  "",
     },
     {
       name:   "Software Engineering",
@@ -228,6 +250,40 @@ const CONFIG = {
       icon:   "fas fa-graduation-cap",
       image:  "certs/skill-india-ai.png",
     },
+  ],
+
+  /* ── 🎓 EDUCATION ─────────────────────────────────────────────── */
+  education: [
+    {
+      degree:     "Bachelor of Technology (B. Tech)",
+      major:      "Computer Science Engineering (AI & ML)",
+      institution: "Sphoorthy Engineering College, JNTUH, Hyderabad",
+      duration:    "2025 – 2029",
+      details:    "CGPA: 8.05 | Currently in Second Year",
+    },
+    {
+      degree:     "Intermediate (MPC)",
+      major:      "Maths, Physics, Chemistry",
+      institution: "Sri Chandra Junior College",
+      duration:    "2023 – 2025",
+      details:    "CGPA: 9.4",
+    },
+    {
+      degree:     "Secondary School (SSC)",
+      major:      "General Studies",
+      institution: "Standard High School",
+      duration:    "2022 – 2023",
+      details:    "CGPA: 8.2",
+    },
+  ],
+
+  /* ── 🏆 ACHIEVEMENTS ─────────────────────────────────────────── */
+  achievements: [
+    "Achieved a CGPA of 8.05 in the first year of B. Tech Computer Science Engineering (AI & ML).",
+    "Secured a CGPA of 9.4 in Intermediate (MPC), reflecting strong academic performance in mathematics and sciences.",
+    "Completed Data Structures & Algorithms coursework with a strong understanding of core concepts.",
+    "Built and delivered multiple academic projects using C and Python, demonstrating practical programming proficiency.",
+    "Demonstrated a commitment to continuous learning by earning certifications in AI, Operating Systems, Python, and Sustainability.",
   ],
 
 };
@@ -567,6 +623,38 @@ const CONFIG = {
     .stats-row { grid-template-columns:1fr 1fr; }
     .hero-left h1 { font-size:1.6rem; }
   }
+
+  /* ── EDUCATION TIMELINE ── */
+  #education { background: var(--surface); }
+  .timeline { position: relative; max-width: 800px; margin: 3rem auto 0; padding: 0 1rem; }
+  .timeline::after { content: ''; position: absolute; width: 2px; background: var(--border); top: 0; bottom: 0; left: 50%; margin-left: -1px; }
+  .timeline-item { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; }
+  .timeline-item::after { content: ''; position: absolute; width: 16px; height: 16px; right: -8px; background-color: var(--bg); border: 3px solid var(--accent); top: 20px; border-radius: 50%; z-index: 1; transition: all 0.3s; }
+  .timeline-item.left { left: 0; text-align: right; }
+  .timeline-item.right { left: 50%; text-align: left; }
+  .timeline-item.right::after { left: -8px; }
+  .timeline-content { padding: 1.5rem; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); position: relative; transition: all 0.3s; }
+  .timeline-content:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(124,111,255,0.15); }
+  .timeline-date { font-size: 0.8rem; font-weight: 700; color: var(--accent2); margin-bottom: 0.4rem; letter-spacing: 0.05em; }
+  .timeline-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .timeline-institution { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.5rem; }
+  .timeline-details { font-size: 0.85rem; color: var(--text); opacity: 0.9; }
+
+  @media (max-width: 768px) {
+    .timeline::after { left: 31px; }
+    .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left !important; }
+    .timeline-item.left { left: 0; }
+    .timeline-item.right { left: 0; }
+    .timeline-item::after { left: 23px; }
+    .timeline-item.right::after { left: 23px; }
+  }
+
+  /* ── ACHIEVEMENTS ── */
+  .achievements-grid { display: grid; grid-template-columns: 1fr; gap: 1.2rem; max-width: 800px; margin: 3rem auto 0; }
+  .achievement-card { display: flex; align-items: flex-start; gap: 1.2rem; background: var(--card); border: 1px solid var(--border); padding: 1.5rem; border-radius: var(--radius); transition: all 0.3s; }
+  .achievement-card:hover { border-color: var(--accent); transform: translateX(5px); box-shadow: 0 8px 24px rgba(124,111,255,0.12); }
+  .achievement-icon { font-size: 1.4rem; color: var(--accent2); flex-shrink: 0; margin-top: 0.2rem; }
+  .achievement-text { font-size: 0.95rem; color: var(--text); line-height: 1.6; }
 </style>
 
 <!-- ──────────────── HTML STRUCTURE ──────────────────────────────── -->
@@ -596,7 +684,8 @@ const CONFIG = {
         <p class="hero-desc" id="heroBio"></p>
         <div class="hero-btns">
           <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> View Projects</a>
-          <a href="#contact"  class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+          <a id="heroResumeBtn" href="#" target="_blank" class="btn btn-outline"><i class="fas fa-file-alt"></i> View Resume</a>
+          <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
         </div>
         <div class="scroll-hint"><span class="scroll-line"></span> Scroll to explore</div>
       </div>
@@ -640,6 +729,18 @@ const CONFIG = {
 </section>
 <hr class="divider" />
 
+<section id="education">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:3rem;">
+      <span class="section-tag">Education</span>
+      <h2 class="section-title">My Academic <span class="gradient-text">Journey</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">A timeline of my academic background and qualifications.</p>
+    </div>
+    <div class="timeline" id="educationTimeline"></div>
+  </div>
+</section>
+<hr class="divider" />
+
 <section id="skills">
   <div class="container">
     <div class="skills-header reveal">
@@ -660,6 +761,18 @@ const CONFIG = {
       <p class="section-subtitle">Things I've built that I'm proud of.</p>
     </div>
     <div class="projects-grid" id="projectsGrid"></div>
+  </div>
+</section>
+<hr class="divider" />
+
+<section id="achievements">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:2rem;">
+      <span class="section-tag">Milestones</span>
+      <h2 class="section-title">Key <span class="gradient-text">Achievements</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">Highlights of my academic and technical success.</p>
+    </div>
+    <div class="achievements-grid" id="achievementsGrid"></div>
   </div>
 </section>
 <hr class="divider" />
@@ -718,7 +831,7 @@ function photoHTML(src, alt, cls='') {
 document.getElementById('navLogo').textContent = initials(CONFIG.name);
 document.title = CONFIG.name + ' — Portfolio';
 
-const navItems = ['Home:#hero','About:#about','Skills:#skills','Projects:#projects','Certs:#certifications','Contact:#contact'];
+const navItems = ['Home:#hero','About:#about','Education:#education','Skills:#skills','Projects:#projects','Achievements:#achievements','Certs:#certifications','Contact:#contact'];
 document.getElementById('navLinks').innerHTML =
   navItems.map(i => { const [t,h]=i.split(':'); return `<li><a href="${h}">${t}</a></li>`; }).join('');
 document.getElementById('mobileMenu').innerHTML =
@@ -733,6 +846,7 @@ document.getElementById('heroName').innerHTML = CONFIG.name.replace(' ','<br/>')
 document.getElementById('heroTagline').innerHTML = CONFIG.tagline
   .split('·').map((p,i) => i===0 ? p.trim() : ` · <span>${p.trim()}</span>`).join('');
 document.getElementById('heroBio').textContent = CONFIG.bio;
+document.getElementById('heroResumeBtn').href = CONFIG.resume;
 
 document.getElementById('heroPhoto').innerHTML =
   photoHTML(CONFIG.photo, CONFIG.name) +
@@ -755,6 +869,18 @@ document.getElementById('aboutInfoGrid').innerHTML = `
   <div class="info-item"><label>Location</label><span>${CONFIG.location}</span></div>
   <div class="info-item"><label>Email</label><span>${CONFIG.email}</span></div>
   <div class="info-item"><label>Status</label><span>${CONFIG.available ? '🟢 Open to Work' : '🔴 Not Available'}</span></div>`;
+
+/* ── Education ── */
+document.getElementById('educationTimeline').innerHTML =
+  CONFIG.education.map((edu, idx) => `
+    <div class="timeline-item ${idx % 2 === 0 ? 'left' : 'right'} reveal">
+      <div class="timeline-content">
+        <div class="timeline-date">${edu.duration}</div>
+        <div class="timeline-title">${edu.degree}</div>
+        <div class="timeline-institution">${edu.institution}</div>
+        ${edu.details ? `<div class="timeline-details">${edu.details}</div>` : ''}
+      </div>
+    </div>`).join('');
 
 /* ── Skills ── */
 document.getElementById('skillsContainer').innerHTML =
@@ -784,6 +910,14 @@ document.getElementById('projectsGrid').innerHTML =
           ${p.github === '#' && p.demo === '#' ? `<span style="color:var(--muted);font-size:0.82rem;">Coming soon</span>` : ''}
         </div>
       </div>
+    </div>`).join('');
+
+/* ── Achievements ── */
+document.getElementById('achievementsGrid').innerHTML =
+  CONFIG.achievements.map(ach => `
+    <div class="achievement-card reveal">
+      <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
+      <div class="achievement-text">${ach}</div>
     </div>`).join('');
 
 /* ── Certifications (Photo Gallery + Lightbox) ── */
