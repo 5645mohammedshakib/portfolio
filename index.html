@@ -155,7 +155,6 @@ const CONFIG = {
       name:   "Software Engineering",
       issuer: "JPMorgan Chase",
       year:   "2025",
-     
     },
     {
       name:   "Career Edge",
@@ -208,9 +207,7 @@ const CONFIG = {
     {
       name:   "Cloud Foundations Associate",
       issuer: "Oracle",
-      year:   "2025",
-      icon:   "fas fa-cloud",
-      image:  "certs/oracle.png",
+      year:   "2025"
     },
     
     
@@ -387,102 +384,50 @@ const CONFIG = {
   .project-link { display:inline-flex;align-items:center;gap:0.35rem;font-size:0.82rem;font-weight:600;color:var(--accent);transition:color 0.2s; }
   .project-link:hover { color:var(--accent2); }
 
-  /* Certs */
+  /* ── CERTIFICATIONS — Magazine Style ── */
   #certifications { background:var(--surface); }
-  .cert-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:3rem; }
-
-  .cert-card {
-    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-    overflow:hidden;transition:transform 0.35s,box-shadow 0.35s,border-color 0.35s;
-    cursor:pointer;position:relative;
+  .cert-mag-header { display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--border);padding-bottom:0.8rem;margin:2.5rem 0 0; }
+  .cert-mag-header span { font-size:0.72rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted); }
+  .cert-mag-list { list-style:none;margin:0;padding:0; }
+  .cert-mag-item {
+    display:flex;align-items:center;gap:1.4rem;
+    padding:1.1rem 0;
+    border-bottom:1px solid rgba(124,111,255,0.1);
+    transition:background 0.25s, padding-left 0.25s;
+    border-radius:8px;
+    cursor:default;
   }
-  .cert-card:hover { transform:translateY(-6px);box-shadow:0 20px 50px rgba(124,111,255,0.25);border-color:var(--accent); }
-
-  /* Certificate thumbnail */
-  .cert-thumb {
-    width:100%;height:180px;overflow:hidden;
-    background:linear-gradient(135deg,rgba(124,111,255,0.15),rgba(255,111,176,0.1));
-    position:relative;
+  .cert-mag-item:hover { background:rgba(124,111,255,0.05);padding-left:0.8rem; }
+  .cert-mag-num {
+    font-family:'Playfair Display',serif;
+    font-size:1.1rem;font-weight:900;
+    color:rgba(124,111,255,0.3);
+    min-width:2.2rem;text-align:right;
+    flex-shrink:0;
+    transition:color 0.25s;
   }
-  .cert-thumb img {
-    width:100%;height:100%;object-fit:cover;
-    transition:transform 0.4s;
+  .cert-mag-item:hover .cert-mag-num { color:var(--accent); }
+  .cert-mag-line { width:1px;height:2.4rem;background:var(--border);flex-shrink:0; }
+  .cert-mag-body { flex:1;min-width:0; }
+  .cert-mag-name {
+    font-size:1rem;font-weight:700;color:var(--text);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    margin-bottom:0.2rem;
   }
-  .cert-card:hover .cert-thumb img { transform:scale(1.05); }
-
-  /* Fallback icon when no image */
-  .cert-thumb-icon {
-    width:100%;height:100%;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    gap:0.5rem;color:var(--accent);
+  .cert-mag-issuer { font-size:0.8rem;color:var(--muted);font-style:italic; }
+  .cert-mag-badges { display:flex;align-items:center;gap:0.5rem;flex-shrink:0; }
+  .cert-mag-year {
+    font-size:0.72rem;font-weight:700;
+    color:var(--accent2);
+    background:rgba(255,111,176,0.1);
+    border:1px solid rgba(255,111,176,0.2);
+    padding:0.2rem 0.65rem;border-radius:50px;
+    white-space:nowrap;
   }
-  .cert-thumb-icon i { font-size:3rem;opacity:0.6; }
-  .cert-thumb-icon span { font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em; }
-
-  /* Zoom overlay on hover */
-  .cert-zoom-overlay {
-    position:absolute;inset:0;
-    background:rgba(124,111,255,0.35);
-    display:flex;align-items:center;justify-content:center;
-    opacity:0;transition:opacity 0.3s;
+  @media(max-width:560px){
+    .cert-mag-name { font-size:0.9rem; }
+    .cert-mag-num { font-size:0.95rem;min-width:1.8rem; }
   }
-  .cert-zoom-overlay i { font-size:2rem;color:#fff; }
-  .cert-card:hover .cert-zoom-overlay { opacity:1; }
-
-  /* Cert body */
-  .cert-body { padding:1.2rem 1.4rem; }
-  .cert-name { font-size:0.95rem;font-weight:700;margin-bottom:0.3rem; }
-  .cert-meta { display:flex;justify-content:space-between;align-items:center; }
-  .cert-issuer { font-size:0.8rem;color:var(--muted); }
-  .cert-year { font-size:0.78rem;font-weight:700;color:var(--accent2);background:rgba(255,111,176,0.1);padding:0.2rem 0.6rem;border-radius:50px;border:1px solid rgba(255,111,176,0.2); }
-
-  /* ── Lightbox Modal ── */
-  .lightbox {
-    position:fixed;inset:0;z-index:999;
-    background:rgba(0,0,0,0.95);
-    display:flex;align-items:center;justify-content:center;
-    padding:1rem;
-    opacity:0;pointer-events:none;
-    transition:opacity 0.3s;
-  }
-  .lightbox.open { opacity:1;pointer-events:all; }
-  .lightbox-inner {
-    position:relative;max-width:900px;width:100%;
-    border-radius:var(--radius);overflow:hidden;
-    transform:scale(0.9);transition:transform 0.35s;
-    box-shadow:0 0 80px rgba(124,111,255,0.4);
-    background:var(--card);
-  }
-  .lightbox.open .lightbox-inner { transform:scale(1); }
-  .lightbox-inner img { width:100%; max-height:75vh; height:auto; object-fit:contain; display:block; margin:0 auto; }
-  .lightbox-info {
-    background:var(--card);padding:1.2rem 1.5rem;
-    display:flex;justify-content:space-between;align-items:center;
-    border-top:1px solid var(--border);
-    flex-wrap:wrap; gap:0.5rem;
-  }
-  .lightbox-info h3 { font-size:1rem;font-weight:600; }
-  .lightbox-info span { font-size:0.85rem;color:var(--muted); }
-  .lightbox-close {
-    position:absolute;top:12px;right:14px;
-    width:36px;height:36px;border-radius:50%;
-    background:rgba(0,0,0,0.7);border:1px solid var(--border);
-    color:#fff;font-size:1rem;
-    display:flex;align-items:center;justify-content:center;
-    cursor:pointer;transition:background 0.2s;z-index:2;
-  }
-  .lightbox-close:hover { background:var(--accent); }
-
-  /* No-image fallback in lightbox */
-  .lightbox-no-img {
-    background:var(--card);
-    width:100%;height:320px;
-    display:flex;flex-direction:column;
-    align-items:center;justify-content:center;
-    gap:1rem;color:var(--muted);
-  }
-  .lightbox-no-img i { font-size:5rem;color:var(--accent);opacity:0.5; }
-  .cert-year { font-size:0.75rem;font-weight:600;color:var(--accent2);margin-top:auto; }
 
   /* Contact */
   #contact { text-align:center; }
@@ -525,7 +470,7 @@ const CONFIG = {
     .about-badge-card { right:0;bottom:-10px; }
 
     .projects-grid { grid-template-columns:1fr; }
-    .cert-grid { grid-template-columns:repeat(2,1fr); }
+    .cert-mag-name { white-space:normal; }
     .contact-cards { flex-direction:column;align-items:center; }
     .contact-card { width:100%;max-width:400px; }
   }
@@ -566,8 +511,6 @@ const CONFIG = {
     .project-thumb { height:140px; }
 
     /* Certs */
-    .cert-grid { grid-template-columns:1fr; }
-    .cert-thumb { height:160px; }
 
     /* Contact */
     .contact-cards { flex-direction:column; }
@@ -745,11 +688,15 @@ const CONFIG = {
 <section id="certifications">
   <div class="container">
     <div class="reveal">
-      <span class="section-tag">Achievements</span>
+      <span class="section-tag">Credentials</span>
       <h2 class="section-title">Certifications &amp; <span class="gradient-text">Courses</span></h2>
-      <p class="section-subtitle">Click any certificate to view it full size. 🔍</p>
+      <p class="section-subtitle">A curated list of programmes, certifications, and courses I have completed.</p>
     </div>
-    <div class="cert-grid" id="certGrid"></div>
+    <div class="cert-mag-header reveal">
+      <span>Programme / Certification</span>
+      <span>Year</span>
+    </div>
+    <ul class="cert-mag-list" id="certGrid"></ul>
   </div>
 </section>
 <hr class="divider" />
@@ -771,17 +718,7 @@ const CONFIG = {
 </footer>
 
 
-<!-- Lightbox Modal -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-  <div class="lightbox-inner">
-    <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
-    <div id="lightboxContent"></div>
-    <div class="lightbox-info">
-      <h3 id="lightboxName"></h3>
-      <span id="lightboxMeta"></span>
-    </div>
-  </div>
-</div>
+
 <script>
 /* ── Helpers ── */
 function initials(name) {
@@ -885,60 +822,20 @@ document.getElementById('achievementsGrid').innerHTML =
       <div class="achievement-text">${ach}</div>
     </div>`).join('');
 
-/* ── Certifications (Photo Gallery + Lightbox) ── */
+/* ── Certifications — Magazine Text List ── */
 document.getElementById('certGrid').innerHTML =
-  CONFIG.certifications.map((c, idx) => {
-    const hasImg = c.image && c.image.trim() !== '';
-    const thumbHTML = hasImg
-      ? `<img src="${c.image}" alt="${c.name}"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-         <div class="cert-thumb-icon" style="display:none;">
-           <i class="${c.icon}"></i>
-           <span>No photo yet</span>
-         </div>`
-      : `<div class="cert-thumb-icon">
-           <i class="${c.icon}"></i>
-           <span>Add photo to certs/</span>
-         </div>`;
-    return `
-    <div class="cert-card reveal" onclick="openLightbox(${idx})">
-      <div class="cert-thumb">
-        ${thumbHTML}
-        <div class="cert-zoom-overlay"><i class="fas fa-search-plus"></i></div>
+  CONFIG.certifications.map((c, idx) => `
+    <li class="cert-mag-item reveal">
+      <span class="cert-mag-num">${String(idx + 1).padStart(2, '0')}</span>
+      <div class="cert-mag-line"></div>
+      <div class="cert-mag-body">
+        <div class="cert-mag-name">${c.name}</div>
+        <div class="cert-mag-issuer">${c.issuer}</div>
       </div>
-      <div class="cert-body">
-        <div class="cert-name">${c.name}</div>
-        <div class="cert-meta">
-          <span class="cert-issuer">${c.issuer}</span>
-          <span class="cert-year">${c.year}</span>
-        </div>
+      <div class="cert-mag-badges">
+        <span class="cert-mag-year">${c.year}</span>
       </div>
-    </div>`;
-  }).join('');
-
-/* ── Lightbox functions ── */
-function openLightbox(idx) {
-  const c = CONFIG.certifications[idx];
-  const hasImg = c.image && c.image.trim() !== '';
-  document.getElementById('lightboxName').textContent = c.name;
-  document.getElementById('lightboxMeta').textContent = c.issuer + ' · ' + c.year;
-  document.getElementById('lightboxContent').innerHTML = hasImg
-    ? `<img src="${c.image}" alt="${c.name}"
-           onerror="this.outerHTML='<div class=\'lightbox-no-img\'><i class=\'${c.icon}\'></i><p>Photo not found.<br>Add it to certs/ folder.</p></div>'" />`
-    : `<div class="lightbox-no-img">
-         <i class="${c.icon}"></i>
-         <p style="text-align:center">No photo added yet.<br><small>Add image to <code>certs/</code> folder &amp; update CONFIG</small></p>
-       </div>`;
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox(e) {
-  if (e && e.target !== document.getElementById('lightbox') && !e.target.closest('.lightbox-close')) return;
-  if (e && e.target.closest('.lightbox-inner') && !e.target.closest('.lightbox-close')) return;
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; } });
+    </li>`).join('');
 
 /* ── Contact ── */
 document.getElementById('contactCards').innerHTML = `
